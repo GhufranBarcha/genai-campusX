@@ -1,0 +1,25 @@
+# Ignore all .env files in root and subdirectories
+.env
+**/.env
+
+# Ignore Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore virtual environments
+.venv/
+venv/
+env/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore Python build artifacts
+build/
+dist/
+*.egg-info/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
