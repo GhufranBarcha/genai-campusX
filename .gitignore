@@ -2,6 +2,9 @@
 .env
 **/.env
 
+## Ignore all the db as well
+**/*.db
+
 # Ignore Python cache and compiled files
 __pycache__/
 *.py[cod]
