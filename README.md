@@ -20,5 +20,12 @@ LangGraph + LLM workflow notebooks & mini apps:
 - Step‑by‑step notebooks: installation, simple LLM flow, prompt chaining, task workflows (BMI, batsman stats, essay, quadratic solver, review reply, X post generator, basic chatbot, persistence).
 - Chatbot demo suites (`11_langgraph_chatbots/`): basic chatbot, streaming responses, resume chatbot, SQLite + persistence example (backend + Streamlit frontends).
 
+## 4. LangSmith CampusX
+Demonstrates LangChain and LangSmith for building and monitoring LLM applications:
+- Simple and sequential LLM chains (`1_simple_llm_call.py`, `2_sequential_chain.py`).
+- RAG pipeline implementations (`3_rag_v*.py`).
+- ReAct agent with custom tools (`4_agent.py`).
+- LangGraph workflow for essay evaluation (`5_langgraph.py`).
+
 ---
 Lightweight, self‑contained examples; open each folder for details.
