@@ -3,6 +3,7 @@ from fastmcp import FastMCP
 import sqlite3
 
 DB_PATH = os.path.join(os.path.dirname(__file__), "expense.db")
+CATEGORIES_PATH = os.path.join(os.path.dirname(__file__), "categories.json")
 
 # Create a FastMCP server instance
 mcp = FastMCP(name="MCP Expense Tracker")
@@ -61,7 +62,7 @@ def summarize(start_date, end_date, category=None):
         
         params = [start_date, end_date]
         if category:
-            query += " AND category = ?"
+            query += " AND LOWER(category) = LOWER(?)"
             params.append(category)
         
         query += " GROUP BY category ORDER BY category ASC"
@@ -69,6 +70,12 @@ def summarize(start_date, end_date, category=None):
         curr = c.execute(query, params)
         cols = [d[0] for d in curr.description]
         return [dict(zip(cols, r)) for r in curr.fetchall()]        
+
+@mcp.resource("expense://categories", mime_type="application/json")
+def categories():
+    # Read fresh each time so you can edit the files without restarting the server
+    with open(CATEGORIES_PATH, "r", encoding="utf-8") as f:
+        return f.read()
 
 if __name__ == "__main__":
     mcp.run()
